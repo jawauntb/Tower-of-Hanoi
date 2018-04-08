@@ -23,6 +23,54 @@ public class Towers{
 	solve(towers); 
 	} // main()
 
+
+
+	  // =========================================================================
+    public static void solve (int[][] towers) {
+
+	int numRings = towers[0].length;
+	print(towers);
+	doSolve(towers, 0, 2, 1, numRings);
+
+    } // solve()
+    // =========================================================================
+
+
+
+    // =========================================================================
+    public static void doSolve (int[][] towers, int from, int to, int other, int ringNum) {
+	if(ringNum == 1){
+	    System.out.println("move the block" + ringNum + " from" + from + "to" + to + "!!"); 
+	    print(towers);
+	}else{
+	    doSolve(towers, from, other, to, (ringNum-1)); /* move smallest piece out of the way */
+	    System.out.println("move the block" + ringNum + " from" + from + "to" + to + "!!"); /* show or say where we move to  */
+	    print(towers);
+	    doSolve(towers, other, to, from, (ringNum-1)); /*move the smalles piece away so larger piece can fit in its location */
+	}
+	       
+       
+
+    } // doSolve()
+    // =========================================================================
+
+
+
+    // =========================================================================
+    public static int[][] initialize (int n) {
+
+	int[][] towers = new int[3][n];
+	for (int i = 0; i < n; i += 1) {
+	    towers[0][i] = n - i;
+	}
+
+	return towers;
+
+    } // initialize()
+
+
+
+
     // =========================================================================
     public static void print (int[][] towers) {
 
