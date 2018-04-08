@@ -1,13 +1,21 @@
-public class Towers{
-	/* main class where action will happen */
+public class Towers {
+// =============================================================================
 
-	public static void main (String [] args) {
-	
-	//if we give the wrong number of args then show usage and exit
+		Authored by: Jawaun T. Brown
+    // =========================================================================
+    /**
+     * The program's entry point.
+     *
+     * @param args The command-line arguments provided by the user.
+     */
+    public static void main (String[] args) {
 
+	// If an incorrect number of arguments was provided on the command-line,
+	// then print the correct usage and exit.
 	if (args.length != 1) {
-		showUsageAndExit();
+	    showUsageAndExit();
 	}
+
 	// Grab the argument.
 	int rings = 0;
 	try {
@@ -20,12 +28,14 @@ public class Towers{
 	}
 
 	int[][] towers = initialize(rings);
-	solve(towers); 
-	} // main()
+	solve(towers);
+
+    } // main()
+    // =========================================================================
 
 
 
-	  // =========================================================================
+    // =========================================================================
     public static void solve (int[][] towers) {
 
 	int numRings = towers[0].length;
@@ -67,7 +77,7 @@ public class Towers{
 	return towers;
 
     } // initialize()
-
+    // =========================================================================
 
 
 
@@ -105,21 +115,33 @@ public class Towers{
 
 
     // =========================================================================
-    	public static void printChar (char c, int reps) {
+    public static void printChar (char c, int reps) {
 
-		for (int i = 0; i < reps; i += 1) {
-		    System.out.print(c);
-		}
+	for (int i = 0; i < reps; i += 1) {
+	    System.out.print(c);
+	}
 
     }
     // =========================================================================
 
 
 
-	public static void showUsageAndExit () {
-        System.err.println("Usage: type in your command line the following: java Towers <the num of rings>");
-	System.exit(1); 
-	}
+    // =========================================================================
+    /**
+     * Print the correct form for running this program and exit with an error
+     * code.
+     */
+    public static void showUsageAndExit () {
+
+	System.err.println("USAGE: java Towers <number of rings>");
+	System.exit(1);
+	
+    } // showUsageAndExit()
+    // =========================================================================
 
 
-}
+
+// =============================================================================
+} // class Towers
+// =============================================================================
+
